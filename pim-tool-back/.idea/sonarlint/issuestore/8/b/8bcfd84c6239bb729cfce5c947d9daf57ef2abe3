@@ -1,0 +1,7 @@
+
+b
+java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(ν¤ϊÿÿÿÿ8¨Συ/
+]
+java:S4684?"@Replace this persistent entity with a simple POJO or DTO object.(πψ¦λ8‚’ι§/
+f
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶―ψ¦ϊÿÿÿÿ8¨Συ/
