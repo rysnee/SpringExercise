@@ -5,6 +5,8 @@ import org.hibernate.mapping.Join;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -26,22 +28,14 @@ public class User implements Serializable {
     private String fullName;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<Task> tasks;
+    private List<Task> tasks = new ArrayList<>();
 
-    @OneToOne(mappedBy = "groupLeader")
-    private Group ledGroup;
-
-    @ManyToMany(
-            targetEntity = Project.class,
-            cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinTable
-    private Set<Project> projects;
-
-    @ManyToOne
-    @JoinColumn
-    private Position position;
+    @OneToMany(mappedBy = "user")
+    private Set<Employee> employees;
 
     public User() {}
+
+    public User(String username) { this.username = username;}
 
     public Long getId() { return id; }
 
@@ -67,11 +61,11 @@ public class User implements Serializable {
 
     public String getFullName() { return fullName; }
 
-    public void setLedGroup(Group ledGroup) { this.ledGroup = ledGroup; }
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
 
-    public Group getLedGroup() { return ledGroup; }
-
-    public void setProjects(Set<Project> projects) { this.projects = projects; }
-
-    public Set<Project> getProjects() { return projects; }
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
 }

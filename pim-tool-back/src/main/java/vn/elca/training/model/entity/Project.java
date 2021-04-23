@@ -1,5 +1,7 @@
 package vn.elca.training.model.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -27,17 +29,22 @@ public class Project {
     private String customer;
 
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT)
     private Set<Task> tasks = new HashSet<>();
 
     @ManyToOne
     @JoinColumn
     private Group group;
 
+    @ManyToOne
+    @JoinColumn
+    private User projectLeader;
+
     @ManyToMany(
-            targetEntity = User.class,
-            cascade = {CascadeType.MERGE, CascadeType.PERSIST},
-            mappedBy = "projects")
-    private Set<User> users;
+            targetEntity = Employee.class,
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable
+    private Set<Employee> employees;
 
     public Project() {
     }
@@ -51,6 +58,13 @@ public class Project {
         this.id = id;
         this.name = name;
         this.finishingDate = finishingDate;
+    }
+
+    public Project(String name, LocalDate finishingDate, Group group, User projectLeader) {
+        this.name = name;
+        this.finishingDate = finishingDate;
+        this.group = group;
+        this.projectLeader = projectLeader;
     }
 
     public Long getId() {
@@ -91,5 +105,13 @@ public class Project {
 
     public void setTasks(Set<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
     }
 }

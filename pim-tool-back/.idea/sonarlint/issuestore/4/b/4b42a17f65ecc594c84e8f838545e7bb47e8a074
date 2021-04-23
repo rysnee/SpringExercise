@@ -1,9 +1,11 @@
 
-G
-java:S1948 "*Make "ledGroup" transient or serializable.(´Ì õ8ê®ŠÈ/
-T
-java:S1128"7Remove this unused import 'org.hibernate.mapping.Join'.(ß§÷â8•ö£É/
-—
-java:S1186,"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜íƒó
 L
 java:S1948&"*Make "projects" transient or serializable.(˜”¾Ñûÿÿÿÿ8ŠÏÉ/
+G
+java:S1948 "*Make "ledGroup" transient or serializable.(´Ì õ8ê®ŠÈ/
+—
+java:S1186,"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜íƒó
+T
+java:S1128"7Remove this unused import 'org.hibernate.mapping.Join'.(ß§÷â8•ö£É/
+L
+java:S1948*"*Make "position" transient or serializable.(·Ì¼øÿÿÿÿÿ8•È’ï/

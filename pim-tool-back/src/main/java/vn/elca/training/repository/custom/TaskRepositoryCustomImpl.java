@@ -22,7 +22,6 @@ public class TaskRepositoryCustomImpl implements TaskRepositoryCustom {
 
     @Override
     public List<Project> findProjectsByTaskName(String taskName) {
-        JPAQueryFactory queryFactory = new JPAQueryFactory(em);
         return new JPAQuery<Project>(em)
                 .from(QProject.project)
                 .innerJoin(QProject.project.tasks, QTask.task)

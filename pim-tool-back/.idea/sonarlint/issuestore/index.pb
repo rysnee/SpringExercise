@@ -81,3 +81,5 @@ i
 9src/main/java/vn/elca/training/model/entity/Position.java,c\b\cb7074bff527c0e50db8f80cf7b72c54caac4d84
 r
 Bsrc/test/java/vn/elca/training/repository/GroupRepositoryTest.java,6\9\695536624e3505c7424064f9c0dd5eef7b747a99
+H
+on-boarding-exercise.iml,0\9\096d53b4f10ee5787afd5822c1f6e7af9282c574

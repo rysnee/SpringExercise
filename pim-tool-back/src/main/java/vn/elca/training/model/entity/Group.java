@@ -1,6 +1,9 @@
 package vn.elca.training.model.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 @Entity
@@ -14,7 +17,7 @@ public class Group {
     private String name;
 
     @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
-    private List<Project> projects;
+    private List<Project> projects = new ArrayList<>();
 
     @OneToOne()
     @JoinColumn
